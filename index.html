@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tachegoum Touyem Junior - Admin Systèmes & Réseaux</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
-        /* 🎨 Variables pour le Dark Mode */
+        /* 🎨 Variables : Thème Dark Mode Professionnel (Bleu/Violet Électrique) */
         :root {
-            --primary-color: #00ffc8; /* Cyan - Couleur d'accentuation vive */
-            --secondary-color: #f0f0f0; /* Texte clair */
-            --background-color: #121212; /* Arrière-plan très sombre */
-            --card-color: #1f1f1f; /* Fond des blocs et cartes */
-            --border-color: #333333; /* Lignes de séparation subtiles */
+            --primary-color: #9d4edd; /* Violet Électrique - Accentuation forte */
+            --secondary-color: #e4e4e4; /* Texte très clair */
+            --background-color: #0c0018; /* Arrière-plan très sombre, légèrement violet */
+            --card-color: #1a082a; /* Fond des blocs et cartes (profondeur) */
+            --border-color: #331a40; /* Lignes de séparation subtiles */
             --font-family: 'Inter', sans-serif;
-            --section-padding: 60px 8%;
+            --section-padding: 80px 8%; /* Augmentation du padding pour l'aération */
+            --shadow-color: rgba(157, 77, 221, 0.4); /* Ombre basée sur primary-color */
         }
 
         /* 🔄 Réinitialisation et Body */
@@ -30,7 +31,7 @@
             line-height: 1.6;
             background-color: var(--background-color);
             color: var(--secondary-color);
-            padding-top: 70px;
+            padding-top: 80px; /* Augmenté pour le header plus grand */
             scroll-behavior: smooth;
         }
 
@@ -40,19 +41,32 @@
             border-bottom: 1px solid var(--border-color);
         }
         h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            font-weight: 700;
+            font-size: 2.5rem; /* Rendu plus imposant */
+            margin-bottom: 40px;
+            font-weight: 800; /* Plus de gras */
             color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
-            display: inline-block;
-            padding-bottom: 5px;
+            position: relative;
+            padding-bottom: 15px;
+            display: block; /* S'étend sur toute la largeur (meilleur pour l'effet::after) */
+            text-align: center;
+        }
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 100px; /* Soulignement court et centré */
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
         }
         h3 {
-             font-size: 1.5rem;
+             font-size: 1.6rem;
              margin-top: 0;
-             margin-bottom: 15px;
+             margin-bottom: 18px;
              color: var(--secondary-color);
+             font-weight: 700;
         }
 
         /* 导航 🧭 En-tête */
@@ -66,14 +80,16 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            padding: 15px 8%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6); /* Ombre plus marquée */
+            padding: 20px 8%; /* Plus d'espace */
+            transition: background-color 0.3s;
         }
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2rem;
+            font-weight: 800;
             color: var(--primary-color);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px var(--primary-color); /* Effet lumineux subtil */
         }
         nav ul {
             list-style: none;
@@ -84,48 +100,59 @@
             text-decoration: none;
             font-weight: 600;
             padding: 10px 18px;
-            transition: color 0.3s, border-bottom 0.3s;
+            transition: color 0.3s, background-color 0.3s, border-radius 0.3s;
+            border-bottom: 2px solid transparent;
         }
         nav ul li a:hover {
             color: var(--primary-color);
+            background-color: var(--card-color);
+            border-radius: 6px;
+            border-bottom-color: var(--primary-color);
         }
 
         /* 🦸 Héro / Accueil */
         .hero {
-            min-height: 50vh;
+            min-height: 70vh; /* Augmenté pour donner de l'impact */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            background: var(--card-color);
+            background: linear-gradient(135deg, var(--background-color) 0%, var(--card-color) 100%); /* Dégradé de fond */
         }
         .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
+            font-size: 4rem; /* Très grand titre */
+            line-height: 1.2;
             color: var(--secondary-color);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 15px var(--shadow-color); /* Glow important */
         }
         .hero-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--primary-color);
             margin-bottom: 40px;
+            font-weight: 600;
         }
         .contact-links {
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .contact-links a {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--primary-color);
             text-decoration: none;
-            margin: 0 10px;
-            padding: 8px 15px;
-            border: 1px solid var(--primary-color);
-            transition: background-color 0.3s;
+            margin: 0 15px;
+            padding: 12px 25px;
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            transition: all 0.4s ease-in-out;
+            box-shadow: 0 0 10px rgba(157, 77, 221, 0.4); /* Glow sur les boutons */
+            font-weight: 700;
         }
         .contact-links a:hover {
             background-color: var(--primary-color);
             color: var(--background-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(157, 77, 221, 0.6);
         }
         
         /* 👤 À Propos */
@@ -133,119 +160,162 @@
             max-width: 900px;
             margin: 0 auto;
             font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
         }
         .about-content ul {
             list-style: none;
             padding-left: 0;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         .about-content ul li {
-            padding: 5px 0;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
         }
         .about-content ul li::before {
-            content: "✔️"; /* Utilisation d'un emoji */
+            content: "💡"; /* Emoji plus adapté au tech */
             color: var(--primary-color);
             font-weight: 700;
-            margin-right: 10px;
+            margin-right: 15px;
         }
         
         /* 🛠️ Compétences (Grid) */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
         }
         .skill-category {
             background: var(--card-color);
-            padding: 25px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 0 5px rgba(0, 255, 200, 0.1);
+            padding: 30px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px; /* Coins arrondis */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow-color); /* Ombre plus dynamique au survol */
         }
         .skill-category ul {
             list-style: none;
             padding-left: 0;
         }
         .skill-category ul li {
-            margin-bottom: 8px;
-            color: #ccc;
+            margin-bottom: 10px;
+            color: #d0d0d0;
+            font-size: 1rem;
         }
         .skill-category ul li::before {
-            content: "•";
+            content: "➤"; /* Puce plus moderne */
             color: var(--primary-color);
             font-weight: 700;
-            margin-right: 8px;
-            font-size: 1.2rem;
+            margin-right: 10px;
+            font-size: 1rem;
         }
         
         /* 📚 Formations */
         .formations-list {
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
         }
         .formation-item {
-            border-left: 3px solid var(--primary-color);
-            padding: 10px 0 10px 20px;
-            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color); /* Ligne plus épaisse */
+            padding: 15px 0 15px 30px;
+            margin-bottom: 25px;
             position: relative;
+            background: var(--card-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s;
+        }
+        .formation-item:hover {
+            background: var(--border-color);
         }
         .formation-item::before {
             content: "🎓";
             position: absolute;
-            left: -15px;
-            top: 15px;
+            left: -20px; /* Décalage pour le point */
+            top: 50%;
+            transform: translateY(-50%);
             background: var(--background-color);
-            padding: 3px;
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            border: 2px solid var(--primary-color);
         }
         .formation-item p {
-            font-weight: 600;
+            font-weight: 700;
             margin: 0;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
         }
         .formation-item small {
-            color: #aaa;
+            color: var(--primary-color); /* Date en couleur d'accentuation */
             display: block;
+            margin-top: 5px;
+            font-weight: 600;
         }
 
         /* 🧰 Projets */
         .project-card {
             background: var(--card-color);
-            padding: 20px;
+            padding: 30px;
             border: 1px solid var(--border-color);
-            margin-bottom: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            transition: box-shadow 0.3s, background 0.3s;
+        }
+        .project-card:hover {
+            box-shadow: 0 0 20px var(--shadow-color);
+            background: var(--background-color);
         }
         .project-card h3 {
             color: var(--primary-color);
             margin-top: 0;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted var(--border-color);
+            padding-bottom: 5px;
         }
         .project-card p {
             color: #ccc;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         .project-card a {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-block;
             margin-top: 10px;
-            border-bottom: 1px dotted var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 2px;
+            transition: color 0.3s;
         }
         .project-card a:hover {
-            color: var(--primary-color);
-            border-bottom-color: var(--primary-color);
+            color: var(--secondary-color);
+            background-color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 4px;
         }
         .project-card span {
             color: #888;
             font-size: 0.9rem;
+            margin-left: 15px;
         }
 
         /* 🗣️ Langues et Centres d'intérêt */
         .interets-langues {
             display: flex;
-            justify-content: space-around;
-            text-align: center;
+            justify-content: center; /* Centré pour l'esthétique */
+            gap: 50px;
+            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .langues, .interets {
             width: 45%;
+            background: var(--card-color);
+            padding: 30px;
+            border-radius: 12px;
         }
         .langues ul, .interets ul {
             list-style: none;
@@ -253,19 +323,37 @@
             font-size: 1.1rem;
         }
         .langues ul li, .interets ul li {
-            padding: 5px 0;
+            padding: 8px 0;
+        }
+        .langues h3, .interets h3 {
+            text-align: center;
+            border-bottom: 2px dashed var(--border-color);
+            padding-bottom: 10px;
         }
         
         /* <footer> Pied de Page */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             background-color: var(--background-color);
             color: #666;
             font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
         }
 
         /* 📱 Responsive */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+            .contact-links a {
+                margin: 0 8px;
+                padding: 10px 20px;
+            }
+        }
         @media (max-width: 768px) {
             .main-header {
                 flex-direction: column;
@@ -276,15 +364,19 @@
                 margin-top: 10px;
                 flex-wrap: wrap;
             }
-            .hero h1 {
-                font-size: 2.5rem;
+            h2 {
+                text-align: left;
+            }
+            h2::after {
+                left: 0;
+                transform: translateX(0);
             }
             .interets-langues {
                 flex-direction: column;
+                gap: 30px;
             }
             .langues, .interets {
                 width: 100%;
-                margin-bottom: 30px;
             }
         }
     </style>
@@ -319,13 +411,13 @@
     <section id="a-propos">
         <h2>👨‍💻 À propos de moi</h2>
         <div class="about-content">
-            <p>Professionnel polyvalent et passionné par les technologies de l'information, je me spécialise dans la garantie de la performance et de la sécurité des infrastructures numériques. Mes domaines d'expertise couvrent :</p>
+            <p>Professionnel polyvalent et passionné par les technologies de l'information, je me spécialise dans la garantie de la **performance** et de la **sécurité des infrastructures numériques**. Mes domaines d'expertise couvrent :</p>
             <ul>
-                <li>l’administration systèmes et réseaux</li>
-                <li>la maintenance informatique (Windows & macOS)</li>
-                <li>la cybersécurité de base et la sécurité physique (vidéosurveillance)</li>
-                <li>la fibre optique et les installations réseau PME</li>
-                <li>l’électricité & l’automatisation de systèmes complexes.</li>
+                <li>💡 l’administration systèmes et réseaux</li>
+                <li>💡 la maintenance informatique (Windows & macOS)</li>
+                <li>💡 la cybersécurité de base et la sécurité physique (vidéosurveillance)</li>
+                <li>💡 la fibre optique et les installations réseau PME</li>
+                <li>💡 l’électricité & l’automatisation de systèmes complexes.</li>
             </ul>
             <p>Méthodique, rigoureux et motivé, je cherche constamment à améliorer mes compétences et à contribuer à des projets solides et pratiques.</p>
         </div>
@@ -393,28 +485,28 @@
     </section>
 
     <section id="projets">
-        <h2>🧰 Mes Projets GitHub</h2>
-        <p>Les projets suivants démontrent mon application pratique de mes compétences systèmes, réseaux et automatisation.</p>
+        <h2>🧰 Mes Projets Clés</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Les projets suivants démontrent mon application pratique de mes compétences systèmes, réseaux et automatisation.</p>
         
         <div class="project-card">
-            <h3>🔹 📹 Système de vidéosurveillance IP complet</h3>
-            <p>Installation des caméras IP, configuration NVR, mise en place de l'accès distant sécurisé.</p>
+            <h3>📹 Système de vidéosurveillance IP complet</h3>
+            <p>**Sécurité Physique :** Installation des caméras IP, configuration NVR, mise en place de l'accès distant sécurisé.</p>
             <a href="https://github.com/USERNAME/videosurveillance" target="_blank">Voir le Projet GitHub →</a>
-            <span>(À remplacer par votre lien)</span>
+            <span>(Lien du code)</span>
         </div>
         
         <div class="project-card">
-            <h3>🔹 🔐 Automatisation : Portail automatique</h3>
-            <p>Conception et réalisation d'un portail automatique avec contrôle PWM, sécurité intégrée, et programmation de l'unité de commande.</p>
+            <h3>🔐 Automatisation : Portail automatique</h3>
+            <p>**Automatisation/Contrôle :** Conception et réalisation d'un portail automatique avec contrôle PWM, sécurité intégrée, et programmation de l'unité de commande.</p>
             <a href="https://github.com/USERNAME/portail-auto" target="_blank">Voir le Projet GitHub →</a>
-            <span>(À remplacer par votre lien)</span>
+            <span>(Lien du code)</span>
         </div>
         
         <div class="project-card">
-            <h3>🔹 🖥️ Scripts pour gestion d’un parc informatique</h3>
-            <p>Développement de scripts (Batch, PowerShell, Bash) pour le diagnostic, la sécurité et l'inventaire automatisé du parc informatique.</p>
+            <h3>🖥️ Scripts pour gestion d’un parc informatique</h3>
+            <p>**Administration Systèmes :** Développement de scripts (Batch, PowerShell, Bash) pour le diagnostic, la sécurité et l'inventaire automatisé du parc informatique.</p>
             <a href="https://github.com/USERNAME/parc-informatique" target="_blank">Voir le Projet GitHub →</a>
-            <span>(À remplacer par votre lien)</span>
+            <span>(Lien du code)</span>
         </div>
         
     </section>
@@ -442,15 +534,15 @@
 
     <section id="contact" style="text-align: center;">
         <h2>🤝 Collaboration</h2>
-        <p>Merci de visiter mon portfolio ! N’hésitez pas à consulter mes projets et à me contacter pour toute opportunité ou collaboration.</p>
+        <p>Intéressé par mes compétences en Systèmes, Réseaux et Sécurité ? N’hésitez pas à me contacter pour toute opportunité ou collaboration.</p>
         <div class="contact-links" style="margin-top: 30px;">
-            <a href="mailto:votre.email@exemple.com" class="btn" style="background: none; color: var(--primary-color); border: 2px solid var(--primary-color);">Email Direct</a>
-            <a href="URL_LINKEDIN" class="btn" style="background-color: var(--primary-color); color: var(--background-color);">LinkedIn</a>
+            <a href="mailto:tachegoumtouyemjunior@gmail.com" target="_blank">Email Direct</a>
+            <a href="URL_LINKEDIN" target="_blank">LinkedIn</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Tachegoum Touyem Junior. Réalisé en HTML/CSS Single File.</p>
+        <p>&copy; 2025 Tachegoum Touyem Junior. Réalisé avec ❤️ en HTML/CSS.</p>
     </footer>
 
 </body>
